@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>{{now}}</h1>
     <button v-on:click="authState" v-if="loggedIn">{{status[0]}}</button>
     <button @click="authState" v-else>{{status[1]}}</button>
     <ul>
@@ -23,19 +24,15 @@
     </select>
     <br>
     <span>{{selected}}</span>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  },
+  components: {},
   data() {
     return {
       status: ["logout", "login"],
@@ -46,6 +43,12 @@ export default {
       selected: "",
     }
   },
+  computed: {
+    now: function () {
+      const time = new Date(); 
+      return `${time.getHours()}:${time.getMinutes()}`
+    }
+  }, 
   methods: {
     authState: function () {
       if(this.loggedIn===false) {
