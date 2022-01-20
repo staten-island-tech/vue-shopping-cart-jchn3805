@@ -1,13 +1,16 @@
 <template>
   <div class="home">
     <h1>{{now}}</h1>
+    <span v-bind:title="message">hover to see</span>
+    <br>
     <button v-on:click="authState" v-if="loggedIn">{{status[0]}}</button>
     <button @click="authState" v-else>{{status[1]}}</button>
     <ul>
       <li v-for="animal in animals" :key="animal">{{animal}}</li>
     </ul>
-    <input type="text" placeholder="type here" v-model="message">
-    <p>{{message}}</p>
+    <p>{{input}}</p>
+    <input type="text" placeholder="type here" v-model="input">
+    <br>
     <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
     <label for="jack">jack</label>
     <input type="checkbox" id="john" value="john" v-model="checkedNames">
@@ -35,10 +38,11 @@ export default {
   components: {},
   data() {
     return {
+      message: new Date().toLocaleString(),
       status: ["logout", "login"],
       loggedIn: false,
       animals: ["dog", "cat", "pig", "cow", "hen"],
-      message: "",
+      input: "",
       checkedNames: [],
       selected: "",
     }
