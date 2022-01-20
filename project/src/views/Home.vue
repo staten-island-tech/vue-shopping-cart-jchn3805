@@ -3,6 +3,7 @@
     <h1>{{now}}</h1>
     <span v-bind:title="message">hover to see</span>
     <br>
+    <Buttons/>
     <button v-on:click="authState" v-if="loggedIn">{{status[0]}}</button>
     <button @click="authState" v-else>{{status[1]}}</button>
     <ul>
@@ -33,9 +34,12 @@
 <script>
 // @ is an alias to /src
 
+
 export default {
   name: 'Home',
-  components: {},
+  components: {
+    
+  },
   data() {
     return {
       message: new Date().toLocaleString(),
@@ -50,7 +54,7 @@ export default {
   computed: {
     now: function () {
       const time = new Date(); 
-      return `${time.getHours()}:${time.getMinutes()}`
+      return `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
     }
   }, 
   methods: {
