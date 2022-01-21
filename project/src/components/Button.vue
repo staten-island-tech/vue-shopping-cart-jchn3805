@@ -1,6 +1,6 @@
 <template>
     <div class="button">
-        <button>Add to Cart</button>
+        <input type="submit" id="addCart" value="Add to Cart">
     </div>
 </template>
 
@@ -11,21 +11,22 @@
 </script>
 
 <style>
-    button {
+    input {
         width: 12rem;
         height: 3rem;
         border: none;
         border-radius: 0.3rem;
         background-color: #151515;
         color: #fff;
+        font-size: 0.9em;
         opacity: 0.6;
         transition: 0.3s;
     }
-    button:hover {
+    input:hover {
         cursor: pointer;
         opacity: 0.8;
     }
-    button:active {
+    input:active {
         transform: scale(0.96);
     }
 </style>
