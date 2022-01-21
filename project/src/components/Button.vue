@@ -1,17 +1,15 @@
 <template>
     <div class="button">
-        <input type="submit" id="addCart" value="Add to Cart">
+        <button>Add to Cart</button>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'Button',
-    }
+    export default {}
 </script>
 
 <style>
-    input {
+    button {
         width: 12rem;
         height: 3rem;
         border: none;
@@ -22,11 +20,11 @@
         opacity: 0.6;
         transition: 0.3s;
     }
-    input:hover {
+    button:hover {
         cursor: pointer;
         opacity: 0.8;
     }
-    input:active {
+    button:active {
         transform: scale(0.96);
     }
 </style>

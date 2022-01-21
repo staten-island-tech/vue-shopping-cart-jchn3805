@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Shop</router-link>
-      <router-link to="/about">Cart</router-link>
+      <router-link to="/cart">Cart</router-link>
     </div>
     <router-view/>
   </div>
@@ -20,7 +20,7 @@
 #nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 2rem 5rem;
 }
 
 #nav a {

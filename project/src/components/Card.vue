@@ -1,8 +1,8 @@
 <template>
     <div class="card">
         <img :src="image" alt="">
-        <h2>{{title}}</h2>
-        <p>{{about}}</p>
+        <h2>{{name}}</h2>
+        <p>{{price}}</p>
         <Button class="addCart"/>
     </div>
 </template>
@@ -11,19 +11,18 @@
     import Button from "../components/Button.vue"
 
     export default {
-        name: "card",
         components: {
             Button
         },
         props: {
-            title: String,
+            name: String,
             image: String,
-            about: String,
+            price: String,
         }
     }
 </script>
 
-<style>
+<style scoped>
     .card {
         display: flex;
         flex-direction: column;
