@@ -27,9 +27,6 @@
         background-color: #efefef;
         color: #151515;
     }
-    h3 {
-        padding-right: 40rem;
-    }
     img {
         height: 7rem;
         width: 7rem;
