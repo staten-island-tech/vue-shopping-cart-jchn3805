@@ -24,7 +24,6 @@
         height: 7rem;
         width: 75%;
         margin: 1rem;
-        background-color: #efefef;
         color: #151515;
     }
     img {

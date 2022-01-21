@@ -20,7 +20,7 @@
 #nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 5rem;
+  margin: 3rem 5rem;
 }
 
 #nav a {
