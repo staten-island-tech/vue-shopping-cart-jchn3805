@@ -1,36 +1,131 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Shop</router-link>
-      <router-link to="/cart">Cart</router-link>
+      <h1>Shop</h1>
+      <h3>{{cartButton}}</h3>
+      <div class="cart">
+        <div class="itemList">
+          <Item
+          v-for="(inCart, index) in inCart"
+          :key="index"
+          :name="inCart.name"
+          :price="`$${inCart.price}`"
+          :image="inCart.image"
+          />
+        </div>
+      </div>
     </div>
-    <router-view/>
+    <section class="display">
+      <Card 
+      @button="addCart(index)"
+      v-for="(item, index) in items"
+      :key="index" 
+      :name="item.name" 
+      :price="`$${item.price}`" 
+      :image="item.image"
+      />
+    </section>
   </div>
 </template>
 
+<script>
+
+import Card from "./components/Card.vue"
+import Item from "./components/Item.vue"
+
+export default {
+  components: {
+    Card, Item
+  },
+  data(){
+    return {
+      cartButton: `Cart`,
+      inCart: [],
+      totalPrice: [],
+      items: [
+        {
+          name: "Lorem ipsum",
+          price: 100,
+          image: "https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+        },
+        {
+          name: "Lorem ipsum",
+          price: 100,
+          image: "https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+        },
+        {
+          name: "Lorem ipsum",
+          price: 100,
+          image: "https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+        },
+      ],
+    }
+  },
+  methods: {
+    addCart(index) {
+      this.inCart.push(this.items[index])
+      // this.totalPrice.push(this.items[index].price)
+      // this.subtotal = this.subtotal + this.items[index].totalPrice
+    },
+    removeItem() {
+      if (this.order.length !==0) {
+        this.inCart.splice(0);
+      }
+    }
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #151515;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #151515;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-#nav {
-  display: flex;
-  justify-content: space-between;
-  margin: 3rem 5rem;
-}
+  #nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 4rem;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #151515;
-  text-decoration: none;
-}
+  #nav a {
+    font-weight: bold;
+    color: #151515;
+    text-decoration: none;
+  }
 
-#nav a.router-link-exact-active {
-  color: #999999;
-  text-decoration: none;
-}
+  #nav a.router-link-exact-active {
+    color: #999999;
+    text-decoration: none;
+  }
+
+  .display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h3 {
+    z-index: 2;
+  }
+
+  .cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 5rem;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    transition: 0.3s;
+  }
+
 </style>

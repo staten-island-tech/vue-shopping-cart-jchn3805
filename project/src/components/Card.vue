@@ -3,16 +3,13 @@
         <img :src="image" alt="">
         <h2>{{name}}</h2>
         <p>{{price}}</p>
-        <Button class="addCart"/>
+        <button @click="$emit('button')" class="addCart">Add to Cart</button>
     </div>
 </template>
 
 <script>
-    import Button from "../components/Button.vue"
-
     export default {
         components: {
-            Button
         },
         props: {
             name: String,
@@ -43,10 +40,25 @@
         height: 20rem;
         object-fit: cover;
     }
-
     .addCart {
-        padding-top: 5rem;
+        margin-top: 5rem;
         position: absolute;
         display: none;
+        width: 12rem;
+        height: 3rem;
+        border: none;
+        border-radius: 0.3rem;
+        background-color: #151515;
+        color: #fff;
+        font-size: 0.9em;
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+    .addCart:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+    .addCart:active {
+        transform: scale(0.96);
     }
 </style>

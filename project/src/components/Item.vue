@@ -1,8 +1,9 @@
 <template>
     <div class="cartItem">
         <img :src="image" alt="">
-        <h3>{{name}}</h3>
+        <h4>{{name}}</h4>
         <p>{{price}}</p>
+        <img src="" alt="">
     </div>
 </template>
 
@@ -16,19 +17,23 @@
     }
 </script>
 
-<style>
+<style scoped>
     .cartItem {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 7rem;
-        width: 75%;
-        margin: 1rem;
+        height: 5rem;
+        margin: 2rem;
         color: #151515;
     }
     img {
-        height: 7rem;
-        width: 7rem;
+        height: 5rem;
+        width: 5rem;
         object-fit: cover;
+        margin-right: 2rem;
     }
+    h4 {
+        margin-right: 2rem;
+    }
+    
 </style>
