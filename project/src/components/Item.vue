@@ -3,7 +3,7 @@
         <img :src="image" alt="">
         <h4>{{name}}</h4>
         <p>{{price}}</p>
-        <img src="" alt="">
+        <img src="../assets/remove.svg" alt="">
     </div>
 </template>
 
