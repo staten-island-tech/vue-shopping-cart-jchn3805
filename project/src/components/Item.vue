@@ -45,7 +45,7 @@
         height: 2rem;
         opacity: 0.3;
         display: none;
-        transition: 0.3s;
+        transition: 0.2s;
     }
     .remove:hover {
         cursor: pointer;
