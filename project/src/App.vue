@@ -6,6 +6,7 @@
       <div class="cart">
         <div class="itemList">
           <Item
+          @remove="removeItem()"
           v-for="(inCart, index) in inCart"
           :key="index"
           :name="inCart.name"
@@ -13,11 +14,12 @@
           :image="inCart.image"
           />
         </div>
+        <p>{{subtotal}}</p>
       </div>
     </div>
     <section class="display">
       <Card 
-      @button="addCart(index)"
+      @add="addCart(index)"
       v-for="(item, index) in items"
       :key="index" 
       :name="item.name" 
@@ -41,7 +43,6 @@ export default {
     return {
       cartButton: `Cart`,
       inCart: [],
-      totalPrice: [],
       items: [
         {
           name: "Lorem ipsum",
@@ -64,13 +65,9 @@ export default {
   methods: {
     addCart(index) {
       this.inCart.push(this.items[index])
-      // this.totalPrice.push(this.items[index].price)
-      // this.subtotal = this.subtotal + this.items[index].totalPrice
     },
     removeItem() {
-      if (this.order.length !==0) {
-        this.inCart.splice(0);
-      }
+        this.inCart.pop()
     }
   }
 }

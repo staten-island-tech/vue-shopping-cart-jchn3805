@@ -3,7 +3,7 @@
         <img :src="image" alt="">
         <h2>{{name}}</h2>
         <p>{{price}}</p>
-        <button @click="$emit('button')" class="addCart">Add to Cart</button>
+        <button @click="$emit('add')" class="addCart">Add to Cart</button>
     </div>
 </template>
 

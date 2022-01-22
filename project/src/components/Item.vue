@@ -3,7 +3,7 @@
         <img :src="image" alt="">
         <h4>{{name}}</h4>
         <p>{{price}}</p>
-        <img src="../assets/remove.svg" alt="">
+        <img @click="$emit('remove')" src="../assets/remove.svg" alt="" class="remove">
     </div>
 </template>
 
@@ -26,6 +26,9 @@
         margin: 2rem;
         color: #151515;
     }
+    .cartItem:hover .remove {
+        display: block;
+    }
     img {
         height: 5rem;
         width: 5rem;
@@ -34,6 +37,22 @@
     }
     h4 {
         margin-right: 2rem;
+    }
+    .remove {
+        position: absolute;
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        opacity: 0.3;
+        display: none;
+        transition: 0.3s;
+    }
+    .remove:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+    .remove:active {
+        transform: scale(0.9);
     }
     
 </style>
