@@ -27,7 +27,7 @@
         align-items: center;
         width: 20rem;
         height: 28rem;
-        margin: 2rem;
+        margin: 1.5rem;
         color: #151515;
         
     }

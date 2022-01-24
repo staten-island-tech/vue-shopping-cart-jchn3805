@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <h1>Shop</h1>
-      <h3>{{cartButton}}</h3>
+      <h3 class="openCart">{{cartButton}}</h3>
       <div class="cart">
         <div class="itemList">
           <Item
@@ -99,7 +99,11 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 4rem;
+    padding: 0 4rem;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 2;
   }
 
   #nav a {
@@ -120,18 +124,33 @@ export default {
     align-items: center;
   }
 
-  h3 {
-    z-index: 2;
+  .openCart {
+    z-index: 1;
+  }
+
+  .openCart:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .openCart:hover ~ .cart {
+    display: block;
+  }
+
+  .cart:hover {
+    display: block;
   }
 
   .cart {
-    position: absolute;
+    display: none;
+    position: fixed;
     top: 0;
     right: 0;
-    margin-top: 5rem;
-    height: 100%;
+    padding-top: 4rem;
+    min-height: 20rem;
+    width: 22rem;
     background-color: #fff;
-    z-index: 1;
+    z-index: 0;
     transition: 0.3s;
   }
 
