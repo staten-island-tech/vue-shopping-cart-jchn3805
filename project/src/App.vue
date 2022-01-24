@@ -258,7 +258,7 @@ export default {
     },
     removeItem() {
       this.inCart.pop();
-      this.subtotal = this.subtotal - this.cartPrice[this.cartPrice.length - 1]
+      this.subtotal = this.subtotal - this.inCart.price[this.cartPrice.length - 1]
       this.cartItems = this.cartItems - 1
     }
   }
