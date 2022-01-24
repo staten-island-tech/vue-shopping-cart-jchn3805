@@ -2,13 +2,13 @@
   <div id="app">
     <div id="nav">
       <h1>Shop</h1>
-      <h3 class="openCart">Cart({{cartItems}})</h3>
+      <h3 class="openCart">Cart ({{cartItems}})</h3>
       <div class="cart">
         <div class="itemList">
           <Item
           @remove="removeItem()"
           v-for="(inCart, index) in inCart"
-          :id="`${i}`"
+          :id="`${index}`"
           :key="index"
           :name="inCart.name"
           :price="`$${inCart.price}`"
@@ -24,7 +24,7 @@
       @add="addCart(index)"
       v-for="(item, index) in items"
       :key="index" 
-      :id="`${i}`"
+      :id="`${index}`"
       :name="`${item.name} (${item.artist})`" 
       :price="`$${item.price}`" 
       :image="item.image"
