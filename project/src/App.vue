@@ -257,7 +257,7 @@ export default {
       this.cartItems = this.cartItems + 1
     },
     removeItem() {
-      this.inCart.pop();
+      this.inCart.splice(0)
       this.subtotal = this.subtotal - this.inCart.price[this.cartPrice.length - 1]
       this.cartItems = this.cartItems - 1
     }
