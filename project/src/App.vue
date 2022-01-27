@@ -254,12 +254,14 @@ export default {
     addCart(index) {
       this.inCart.push(this.items[index])
       this.cartPrice.push(this.items[index].price)
-      // this.subtotal = this.subtotal + this.items[index].price
+      this.subtotal = this.cartPrice.reduce(function (a, b) {
+        return a + b
+      })
       this.cartItems = this.cartItems + 1
     },
     removeItem(index) {
       this.inCart.splice(index, 1)
-      // this.subtotal = this.subtotal - this.inCart.price[this.cartPrice.length - 1]
+      this.subtotal = this.cartPrice - this.cartPrice[index]
       this.cartItems = this.cartItems - 1 
     }
   }
