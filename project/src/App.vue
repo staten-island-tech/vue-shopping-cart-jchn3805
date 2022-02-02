@@ -253,14 +253,16 @@ export default {
   methods: {
     addCart(index) {
       this.inCart.push(this.items[index])
-      this.cartPrice.push(this.items[index].price)
-      this.subtotal = this.cartPrice.reduce(((x, y) => x + y))
+      // this.cartPrice.push(this.items[index].price)
+      // this.subtotal = this.cartPrice.reduce(((x, y) => x + y))
+      this.subtotal = this.subtotal + this.items[index].price
       this.cartItems = this.cartItems + 1
     },
     removeItem(index) {
       this.inCart.splice(index, 1)
-      this.cartPrice.splice(index, 1)
-      this.subtotal = this.cartPrice.reduce(((x, y) => x + y))
+      // this.cartPrice.splice(index, 1)
+      // this.subtotal = this.cartPrice.reduce(((x, y) => x + y))
+      this.subtotal = this.subtotal - this.inCart[index].price
       this.cartItems = this.cartItems - 1 
     }
   }
