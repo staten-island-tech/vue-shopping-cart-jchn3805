@@ -13,7 +13,6 @@
           :name="inCart.name"
           :price="`$${inCart.price}`"
           :image="inCart.image"
-         
           />
         </div>
         <h4>{{cartItems}} Items in Cart</h4>
